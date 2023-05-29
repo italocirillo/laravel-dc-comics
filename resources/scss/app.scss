@@ -1,1 +1,40 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: #0a7b5d;
+}
+
+h1 {
+    color: burlywood;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 1em;
+}
+
+li,
+a {
+    text-decoration: none;
+}
+
+.card {
+    background-color: black;
+    color: white;
+    height: 100%;
+
+    h5 {
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    .list-group-item {
+        background-color: burlywood;
+        color: #0a4d7b;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+}
