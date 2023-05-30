@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        <div class="text-center py-4">
+            <button class="btn btn-info">
+                <a href="{{ route('comics.index') }}" class="text-decoration-none text-light">Ritorna alla home</a>
+            </button>
+        </div>
         <form action="{{ route('comics.store') }}" method="POST">
             @csrf
             <h3>Crea un fumetto</h3>

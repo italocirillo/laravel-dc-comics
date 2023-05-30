@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="text-center py-4">
+        <button class="btn btn-info">
+            <a href="{{ route('comics.index') }}" class="text-decoration-none text-light">Ritorna alla home</a>
+        </button>
+    </div>
     <div class="card my-3 m-auto" style="width: 50%">
         <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
         <div class="card-body">

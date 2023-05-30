@@ -16,6 +16,25 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $comic->title }}</h5>
                                     <p class="card-text">{{ $comic->description }}</p>
+                                    <ul class="scelta-icone list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a href="{{ route('comics.show', $comic->id) }}">
+                                                <button type="button" class="btn btn-light">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{{ route('comics.edit', $comic->id) }}">
+                                                <button type="button" class="btn btn-success">
+                                                    <i class="fa-solid fa-marker"></i>
+                                                </button>
+                                            </a>
+                                            <a href="{{ route('comics.show', $comic->id) }}">
+                                                <button type="button" class="btn btn-danger">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </button>
+                                            </a>
+                                        </li>
+                                    </ul>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">{{ $comic->price }}</li>
                                         <li class="list-group-item">Series: {{ $comic->series }}</li>
