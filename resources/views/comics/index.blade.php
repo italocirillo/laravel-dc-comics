@@ -28,11 +28,13 @@
                                                     <i class="fa-solid fa-marker"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('comics.show', $comic->id) }}">
-                                                <button type="button" class="btn btn-danger">
+                                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </button>
-                                            </a>
+                                            </form>
                                         </li>
                                     </ul>
                                     <ul class="list-group list-group-flush">
