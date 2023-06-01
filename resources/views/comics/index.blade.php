@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container text-center py-3">
-        <h1>Fumetti:</h1>
+        <h1>Fumetti</h1>
         <button class="btn btn-info">
             <a href="{{ route('comics.create') }}" class="text-decoration-none text-light ">Crea fumetto</a>
         </button>

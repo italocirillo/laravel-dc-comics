@@ -22,40 +22,49 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo:</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror " id="title"
-                    placeholder="titolo" name="title" value="{{ old('title') }}">
+                    placeholder="titolo" name="title" value="@error('title') @else{{ old('title') }} @enderror">
                 @error('title')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="thumb" class="form-label">Immagine:</label>
                 <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="title"
-                    id="thumb" placeholder="immagine" name="thumb" value="{{ old('thumb') }}">
+                    id="thumb" placeholder="immagine" name="thumb"
+                    value="@error('thumb') @else{{ old('thumb') }} @enderror">
                 @error('thumb')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Prezzo:</label>
                 <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
-                    name="price" value="{{ old('price') }}">
+                    placeholder="$0.00" name="price" value="@error('price') @else{{ old('price') }} @enderror">
                 @error('price')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione:</label>
-                <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
-                    name="description">{{ old('description') }}</textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" id="description" placeholder="....TEXT..."
+                    rows="3" name="description">{{ old('description') }}</textarea>
                 @error('description')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>
@@ -70,7 +79,9 @@
                 </select>
                 @error('series')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>
@@ -80,7 +91,9 @@
                     name="sale_date" value="{{ old('sale_date') }}">
                 @error('sale_date')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>
@@ -94,7 +107,9 @@
                 </select>
                 @error('type')
                     <div class="invalid-feedback">
-                        {{ $message }}
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
                     </div>
                 @enderror
             </div>

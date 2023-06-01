@@ -88,7 +88,7 @@ class ComicController extends Controller
      */
     public function update(UpdateComicRequest $request, $id)
     {
-        $data = $request->valited();
+        $data = $request->validated();
         $comic = Comic::findOrFail($id);
         $comic->update($data);
 
