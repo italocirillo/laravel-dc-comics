@@ -30,7 +30,7 @@
                                 <li class="list-group-item list-group-item-action">Series: {{ $comic->series }}</li>
                                 <li class="list-group-item list-group-item-action">Data d'uscita: {{ $comic->sale_date }}
                                 </li>
-                                <li class="list-group-item list-group-item-action">Tipo: {{ $comic->type }}</li>
+                                <li class="list-group-item list-group-item-action">Tipologia: {{ $comic->type }}</li>
                             </ul>
                         </td>
                         <td>

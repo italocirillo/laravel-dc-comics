@@ -7,45 +7,96 @@
                 <a href="{{ route('comics.index') }}" class="text-decoration-none text-light">Ritorna alla home</a>
             </button>
         </div>
+
+        @if ($errors->any())
+            <ul class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
         <form action="{{ route('comics.store') }}" method="POST">
             @csrf
             <h3>Crea un fumetto</h3>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo:</label>
-                <input type="text" class="form-control" id="title" placeholder="titolo" name="title">
+                <input type="text" class="form-control @error('title') is-invalid @enderror " id="title"
+                    placeholder="titolo" name="title" value="{{ old('title') }}">
+                @error('title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="thumb" class="form-label">Immagine:</label>
-                <input type="text" class="form-control" id="thumb" placeholder="immagine" name="thumb">
+                <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="title"
+                    id="thumb" placeholder="immagine" name="thumb" value="{{ old('thumb') }}">
+                @error('thumb')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Prezzo:</label>
-                <input type="text" class="form-control" id="price" name="price">
+                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                    name="price" value="{{ old('price') }}">
+                @error('price')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione:</label>
-                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
+                    name="description">{{ old('description') }}</textarea>
+                @error('description')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div>
                 <label for="series" class="form-label">Serie:</label>
-                <select class="form-select" aria-label="Default select example" name="series">
-                    <option selected>Serie</option>
-                    <option value="Batman">Batman</option>
-                    <option value="Superman">Superman</option>
-                    <option value="Spiderman">Spiderman</option>
+                <select id="series" class="form-select @error('series') is-invalid @enderror"
+                    aria-label="Default select example" name="series">
+                    <option value="">Serie</option>
+                    <option @selected(old('series') === 'Batman') value="Batman">Batman</option>
+                    <option @selected(old('series') === 'Superman') value="Superman">Superman</option>
+                    <option @selected(old('series') === 'Spiederman') value="Spiderman">Spiderman</option>
                 </select>
+                @error('series')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="sale_date" class="form-label">Data:</label>
-                <input type="date" class="form-control" id="sale_date" name="sale_date">
+                <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date"
+                    name="sale_date" value="{{ old('sale_date') }}">
+                @error('sale_date')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div>
                 <label for="type" class="form-label">Tipo:</label>
-                <select class="form-select" aria-label="Default select example" name="type">
-                    <option selected>Tipo</option>
-                    <option value="comic book">Comic Book</option>
-                    <option value="graphic novel">Graphic novel</option>
+                <select class="form-select @error('type') is-invalid @enderror" aria-label="Default select example"
+                    name="type" value="{{ old('type') }}">
+                    <option value="">Tipo</option>
+                    <option @selected(old('type')) value="comic book">Comic Book</option>
+                    <option @selected(old('type')) value="graphic novel">Graphic novel</option>
                 </select>
+                @error('type')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <button type="submit" class="btn btn-success my-3">Invia</button>
         </form>
